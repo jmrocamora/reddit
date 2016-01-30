@@ -11,6 +11,19 @@
 	<p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
+  <% if user_signed_in? %>
+  	<ul>
+  		<li><%= link_to 'Nuevo link', new_link_path %></li>
+  		<li><%= link_to 'Cuenta', edit_user_registration_path %></li>
+  		<li><%= link_to 'Salir', destroy_user_session_path, :method => :delete %></li>
+  	</ul>
+  <% else %>
+  	<ul>
+  		<li><%= link_to 'Registrarse', new_user_registration_path %></li>
+  		<li><%= link_to 'Acceder', new_user_session_path %></li>
+  	</ul>
+  <% end %>
+
 <%= yield %>
 
 </body>
